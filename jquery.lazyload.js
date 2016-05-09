@@ -111,7 +111,7 @@
                                 $self.attr("src", original);
                             } else {
                                 console.log(window.location.origin);
-                                var lineargradient = $self.css("background-image");                                
+                                var lineargradient = $self.css("background-image");
                                 var testRE = lineargradient.match("url((.*))");
                                 console.log(testRE[1]);
                                 var y = lineargradient.replace("https://b.fitn.in/empty.png", original);
