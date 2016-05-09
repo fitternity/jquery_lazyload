@@ -103,13 +103,20 @@
                         settings.appear.call(self, elements_left, settings);
                     }
                     $("<img />")
-                        .one("load", function() {
+                        .bind("load", function() {
+
                             var original = $self.attr("data-" + settings.data_attribute);
                             $self.hide();
                             if ($self.is("img")) {
                                 $self.attr("src", original);
                             } else {
-                                $self.css("background-image", "url('" + original + "')");
+                                console.log(window.location.origin);
+                                var lineargradient = $self.css("background-image");                                
+                                var testRE = lineargradient.match("url((.*))");
+                                console.log(testRE[1]);
+                                var y = lineargradient.replace("https://b.fitn.in/empty.png", original);
+                                console.log(y);
+                                $self.css("background-image", y);
                             }
                             $self[settings.effect](settings.effect_speed);
 
